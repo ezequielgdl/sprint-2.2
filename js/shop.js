@@ -71,6 +71,8 @@ var products = [
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 var cart = [];
+const cartList = document.getElementById("cart_list");
+const totalPrice = document.getElementById("total_price");
 
 var total = 0;
 
@@ -106,19 +108,35 @@ function calculateTotal() {
 }
 
 // Exercise 4
-function applyPromotionsCart() {
+function applyPromotionsCart(product) {
   // Apply promotions to each item in the array "cart"
-  for (const item of cart) {
-    if (item.offer && item.quantity >= item.offer.number) {
-      discount = item.price * (item.offer.percent / 100);
-      item.price -= discount;
-    }
+  if (product.offer && product.quantity >= product.offer.number) {
+    discount = product.price * (product.offer.percent / 100);
+    discountedPrice = product.price - discount;
+    return discountedPrice * product.quantity;
   }
+
+  return product.price * product.quantity;
 }
 
 // Exercise 5
 function printCart() {
   // Fill the shopping cart modal manipulating the shopping cart dom
+  cartList.innerHTML = "";
+
+  cart.map((product) => {
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
+          <th scope="row">${product.name}</th>
+          <td>$${product.price}</td>
+          <td>${product.quantity}</td>
+          <td>${applyPromotionsCart(product).toFixed(2)}</td>
+      `;
+    cartList.appendChild(newRow);
+  });
+
+  calculateTotal();
+  totalPrice.innerText = total.toFixed(2);
 }
 
 // ** Nivell II **
