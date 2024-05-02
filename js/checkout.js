@@ -1,28 +1,64 @@
-
 // Exercise 6
+let error = 0;
+
+// Get the input fields
+let fName = document.getElementById("fName");
+let fEmail = document.getElementById("fEmail");
+let fAddress = document.getElementById("fAddress");
+let fLastN = document.getElementById("fLastN");
+let fPassword = document.getElementById("fPassword");
+let fPhone = document.getElementById("fPhone");
+
+// // Get the error elements
+// let errorName = document.getElementById("errorName");
+// let errorEmail = document.getElementById("errorEmail");
+// let errorAddress = document.getElementById("errorAddress");
+// let errorLastN = document.getElementById("errorEmail");
+// let errorPassword = document.getElementById("errorEmail");
+// let errorPhone = document.getElementById("errorEmail");
+
+const isValidLength = (value) => {
+  return value.length >= 3;
+};
+
+const isLetters = (value) => {
+  return /^[a-zA-Z]+$/.test(value);
+};
+
+const isNum = (value) => {
+  return /^\d+$/.test(value);
+};
+
+const isEmail = (value) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+};
+
+const isValidPassword = (value) => {
+  return /[a-zA-Z]/.test(value) && /[0-9]/.test(value);
+};
+
+const fieldValidate = (field, callback) => {
+  if (!isValidLength(field.value) || !callback(field.value)) {
+    field.classList.add("is-invalid");
+    error++;
+  } else {
+    field.classList.remove("is-invalid");
+  }
+};
+
 function validate() {
-	var error = 0;
-	// Get the input fields
-	var fName = document.getElementById("fName");
-	var fEmail = document.getElementById("fEmail");
-
-	// Get the error elements
-	var errorName = document.getElementById("errorName");
-	var errorEmail = document.getElementById("errorEmail");  
-	
-	// Validate fields entered by the user: name, phone, password, and email
-	if(fName.value == ""){
-		error++;
-	}
-
-	if(fEmail.value == ""){
-		error++;
-	}
-	 
-	if(error>0){
-		alert("Error");
-	}else{
-		alert("OK");
-	}
-
+  error = 0;
+  // Validate fields entered by the user: name, phone, password, and email
+  fieldValidate(fName, isLetters);
+  fieldValidate(fLastN, isLetters);
+  fieldValidate(fAddress, isValidLength);
+  fieldValidate(fPhone, isNum);
+  fieldValidate(fEmail, isEmail);
+  fieldValidate(fPassword, isValidPassword);
 }
+
+addEventListener("submit", function (event) {
+  if (error > 0) {
+    event.preventDefault();
+  }
+});

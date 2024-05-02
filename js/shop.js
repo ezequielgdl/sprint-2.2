@@ -102,9 +102,10 @@ function cleanCart() {
 // Exercise 3
 function calculateTotal() {
   // Calculate total price of the cart using the "cartList" array
-  for (const item of cart) {
-    total += item.price * item.quantity;
-  }
+  total = cart.reduce((acc, product) => {
+    return acc + applyPromotionsCart(product);
+  }, 0);
+  totalPrice.innerText = total.toFixed(2);
 }
 
 // Exercise 4
@@ -136,7 +137,6 @@ function printCart() {
   });
 
   calculateTotal();
-  totalPrice.innerText = total.toFixed(2);
 }
 
 // ** Nivell II **
