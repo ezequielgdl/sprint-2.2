@@ -70,11 +70,12 @@ var products = [
 // ** Don't hesitate to seek help from your peers or your mentor if you still struggle with debugging.
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
-var cart = [];
+let cart = [];
 const cartList = document.getElementById("cart_list");
 const totalPrice = document.getElementById("total_price");
+const productCount = document.getElementById("count_product");
 
-var total = 0;
+let total = 0;
 
 // Exercise 1
 function buy(id) {
@@ -97,6 +98,7 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
   cart = [];
+  printCart();
 }
 
 // Exercise 3
@@ -132,6 +134,9 @@ function printCart() {
           <td>$${product.price}</td>
           <td>${product.quantity}</td>
           <td>${applyPromotionsCart(product).toFixed(2)}</td>
+          <td><button class="btn btn-light border" onclick="removeFromCart(${
+            product.id
+          })">-</button></td>
       `;
     cartList.appendChild(newRow);
   });
@@ -142,7 +147,15 @@ function printCart() {
 // ** Nivell II **
 
 // Exercise 7
-function removeFromCart(id) {}
+function removeFromCart(id) {
+  const index = cart.findIndex((product) => product.id === id);
+  if (index !== -1) {
+    cart[index].quantity > 1
+      ? (cart[index].quantity -= 1)
+      : cart.splice(index, 1);
+  }
+  printCart();
+}
 
 function open_modal() {
   printCart();
