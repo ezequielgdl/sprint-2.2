@@ -77,22 +77,25 @@ const productCount = document.getElementById("count_product");
 
 let total = 0;
 
+const handleProductCount = () => {
+  const quantity = cart.reduce((acc, current) => acc + current.quantity, 0);
+  productCount.innerText = quantity;
+  return quantity;
+};
+
 // Exercise 1
 function buy(id) {
-  // 1. Loop for to the array products to get the item to add to cart
-  for (const item of products) {
-    if (!cart.find((product) => product.id === id)) {
-      // 2. Add found product to the cart array
-      if (id === item.id) {
-        item.quantity = 1;
-        cart.push(item);
-        break;
-      }
-    } else {
-      item.quantity += 1;
-    }
+  const productToBuy = products.find((product) => product.id === id);
+  const existingProduct = cart.find((product) => product.id === id);
+
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    productToBuy.quantity = 1;
+    cart.push(productToBuy);
   }
-  console.log(cart);
+
+  handleProductCount();
 }
 
 // Exercise 2
