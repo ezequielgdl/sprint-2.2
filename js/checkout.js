@@ -27,7 +27,7 @@ const isLetters = (value) => {
 };
 
 const isNum = (value) => {
-  return /^\d+$/.test(value);
+  return value.length === 9 && /^\d+$/.test(value);
 };
 
 const isEmail = (value) => {
