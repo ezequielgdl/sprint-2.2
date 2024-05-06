@@ -1,72 +1,61 @@
-# Sprint 2 IT Academy | Shop
+# Tienda Online con JavaScript, HTML y Bootstrap 5
 
-## Introduction
+## Descripción
 
-A company in the e-commerce sector has asked us for a web application that allows them to offer the purchase of their products through the internet.
+Este repositorio contiene el código fuente de una aplicación web de comercio electrónico desarrollada con JavaScript, HTML y Bootstrap 5. La aplicación permite a los usuarios agregar productos al carrito, calcular precios con descuentos y completar el proceso de checkout con validación de formulario.
 
-You will be in charge of setting up an initial demo version of the application for the client: management of the shopping cart and the application of the promotions on the final price. You have 2 weeks to finish, which is how long this sprint lasts.
+## Características
 
-<br>
+- **Agregar Productos al Carrito:** Los usuarios pueden agregar productos al carrito de compra desde el catálogo de productos.
 
-## Requirements
+- **Cálculo de Precios con Descuentos:** La aplicación calcula automáticamente el precio total de la compra, aplicando descuentos si están disponibles.
 
+- **Validación de Formulario:** Se realizan validaciones en tiempo real en el formulario de checkout para garantizar que se proporcionen datos válidos antes de enviar la orden de compra.
 
-1. Clone this repo
-```bash
-$ git clone https://github.com/IT-Academy-BCN/starter-code-frontend-shop
-```
+## Tecnologías Utilizadas
 
-2. Unlink your repo from the itacademy repository.
-(Explanation: You have to upload the code to your GitHub repository, not to the IT Academy. That's why you have to unlink your project from IT Academy GitHub with the following command)
+- **JavaScript**
+- **HTML**
+- **Bootstrap 5**
 
-```bash
-$ git remote rm origin
-```
+## Instalación y Ejecución
 
-3. Link your repo to the repository you have to create in your github account
-(Explanation: Now your project is not linked to any remote repository. In order to upload your code, you have to link your project to the new repository created on github.com using the following command)
+1. **Clonar el Repositorio:**
 
-```bash
-$ git remote add origin <your repo name!>
-```
+git clone https://github.com/tu-usuario/tu-proyecto.git
 
-<br>
+2. **Abrir el Proyecto:**
 
-## Submission
+Navega hacia el directorio del proyecto clonado.
 
-1. Upon completion, run the following commands:
+cd tu-proyecto
 
-```bash
-$ git add .
-$ git commit -m "Sprint Solution"
-$ git push origin master
-```
+3. **Ejecutar la Aplicación:**
 
-2. Upload the link to the virtual campus so that your mentor can correct it and give you feedback.
+Abre el archivo `index.html` en tu navegador web favorito.
 
+## Uso
 
+1. **Agregar Productos al Carrito:**
 
-<br>
+- Explora la tienda y haz clic en el botón "Agregar al Carrito" para añadir productos a tu carrito de compra.
 
-## Introduction
+2. **Cálculo de Precios:**
 
-The statement of the exercise is available on the virtual campus.
+- Observa cómo el precio total se actualiza automáticamente en función de los productos seleccionados y los descuentos aplicados.
 
-<br>
+3. **Checkout:**
 
+- Completa el formulario de checkout con tu información personal y de pago.
 
-## Instructions
+- Selecciona el método de envío y realiza la confirmación de la orden.
 
-You have the following indications from the frontend manager:
+4. **Validación de Formulario:**
 
-- You have prepared the base of the project on which you will work: https://github.com/IT-Academy-BCN/starter-code-frontend-shop
+- Se te solicitará que proporciones información válida en cada campo del formulario de checkout. Los campos requeridos deben completarse correctamente antes de enviar la orden.
 
-- The base of the project on which you will work has already created all the files, and an initial version of the interface, so you can focus on programming the logic.
+## Contribuciones
 
-- As at the moment we don't consume data from a server using an API, we will work with hardcoded data in the application. For the moment we will implement the logic using a small group of 9 products divided in 3 sections.
+Si deseas contribuir a este proyecto, ¡eres bienvenido! Puedes enviar sugerencias, correcciones o mejoras a través de issues o pull requests.
 
-- Except for the last level, showing the result of the functions by console is enough.
-
-- The logic to implement will be placed in the src/grocery.js and src/checkout.js files. You will see that the built in functions have already been created for you to implement them.
-
-- It is forbidden to copy the code, since this way you don't learn anything. Furthermore, as you can see, the second release of sprint 5 is a mini-level test with the mentor, in which you will have to demonstrate live that you have acquired the javascript concepts. Don't worry, if you work on the releases you won't have any problems.
+---
