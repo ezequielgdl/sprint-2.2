@@ -8,6 +8,7 @@ let fAddress = document.getElementById("fAddress");
 let fLastN = document.getElementById("fLastN");
 let fPassword = document.getElementById("fPassword");
 let fPhone = document.getElementById("fPhone");
+let submitBtn = document.getElementById("submit-btn");
 
 // // Get the error elements
 // let errorName = document.getElementById("errorName");
@@ -48,17 +49,24 @@ const fieldValidate = (field, callback) => {
 
 function validate() {
   error = 0;
-  // Validate fields entered by the user: name, phone, password, and email
+
   fieldValidate(fName, isLetters);
   fieldValidate(fLastN, isLetters);
   fieldValidate(fAddress, isValidLength);
   fieldValidate(fPhone, isNum);
   fieldValidate(fEmail, isEmail);
   fieldValidate(fPassword, isValidPassword);
+
+  if (error === 0) {
+    submitBtn.setAttribute("data-bs-target", "#successModal");
+  }
 }
 
 addEventListener("submit", function (event) {
-  if (error > 0) {
-    event.preventDefault();
-  }
+  validate();
+  event.preventDefault();
 });
+
+function navigate() {
+  window.location.href = "/index.html";
+}

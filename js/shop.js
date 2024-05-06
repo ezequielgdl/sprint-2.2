@@ -2,7 +2,7 @@
 var products = [
   {
     id: 1,
-    name: "cooking oil",
+    name: "Cooking Oil",
     price: 10.5,
     type: "grocery",
     offer: {
@@ -18,7 +18,7 @@ var products = [
   },
   {
     id: 3,
-    name: "Instant cupcake mixture",
+    name: "Instant Cupcake Mixture",
     price: 5,
     type: "grocery",
     offer: {
@@ -137,13 +137,17 @@ function printCart() {
           <td>$${product.price}</td>
           <td>${product.quantity}</td>
           <td>${applyPromotionsCart(product).toFixed(2)}</td>
-          <td><button class="btn btn-light border" onclick="removeFromCart(${
+          <td>
+          <button class="btn btn-light border" onclick="removeFromCart(${
             product.id
-          })">-</button></td>
+          })">
+          <i class="fas fa-minus"></i>
+          </button>
+          </td>
       `;
     cartList.appendChild(newRow);
   });
-
+  handleProductCount();
   calculateTotal();
 }
 
